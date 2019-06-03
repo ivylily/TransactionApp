@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
-using System.Transactions;
+using TransactionApp.Domain.Models;
+using TransactionApp.Domain.Services.Communication;
 
 namespace TransactionApp.Domain.Services
 {
     public interface ITransactionService
     {
-        Task<decimal> SubmitTransactionAsync(Transaction transaction);
+        Task<SubmitTransactionResponse> SubmitTransactionAsync(Transaction transaction);
     }
 }

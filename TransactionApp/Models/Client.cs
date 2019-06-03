@@ -12,10 +12,6 @@ namespace TransactionApp.DAL.Models
         public long ClientId { get; set; }
 
         [Required]
-        [ForeignKey("Bank")]
-        public long BankId { get; set; }
-
-        [Required]
         [MaxLength(150)]
         public string ClientName { get; set; }
 
@@ -29,5 +25,9 @@ namespace TransactionApp.DAL.Models
         [Required]
         public DateTime CreatedOn { get; set; }
         //public virtual ICollection<Transaction> Transaction { get; set; }
+
+        [Required]
+        public long BankId { get; set; }
+        public virtual Bank Bank { get; set; }
     }
 }

@@ -56,7 +56,7 @@ namespace TransactionApp.DAL.Migrations
                 name: "TransactionTypes",
                 columns: table => new
                 {
-                    TransactionTypeCode = table.Column<string>(nullable: false),
+                    TransactionTypeCode = table.Column<string>(maxLength: 1,nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

@@ -11,11 +11,7 @@ namespace TransactionApp.DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long AccountId { get; set; }
-
-        [Required]
-        [ForeignKey("Client")]
-        public long ClientId { get; set; }
-
+        
         [Required]
         public decimal CurrentAmount { get; set; }
 
@@ -25,5 +21,12 @@ namespace TransactionApp.DAL.Models
 
         [Required]
         public DateTime CreatedOn { get; set; }
+
+
+        [Required]
+        [ForeignKey("Client")]
+        public long ClientId { get; set; }
+
+        public virtual Client Client { get; set; }
     }
 }

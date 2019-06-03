@@ -9,19 +9,11 @@ namespace TransactionApp.DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long TransactionId { get; set; }
-
-        [Required]
-        [ForeignKey("Account")]
-        public long AccountId { get; set; }
-
+                
         public long MerchandAccountId { get; set; }
         
         [Required]
         public decimal Amount { get; set; }
-
-        [Required]
-        [MaxLength(1)]
-        public string TransactionType { get; set; }
 
         [Required]
         public DateTime TransactionDate { get; set; }
@@ -35,5 +27,17 @@ namespace TransactionApp.DAL.Models
 
         [Required]
         public DateTime CreatedOn { get; set; }
+
+        [Required]
+        [ForeignKey("Account")]
+        public long AccountId { get; set; }
+
+        public virtual Account Account { get; set; }
+
+        [Required]
+        [MaxLength(1)]
+        public string TransactionTypeCode { get; set; }
+
+        public virtual TransactionType TransactionType { get; set; }
     }
 }

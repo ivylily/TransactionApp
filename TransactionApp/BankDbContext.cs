@@ -12,6 +12,17 @@ namespace TransactionApp.DAL.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Client>(entity =>
+            //{
+            //    entity.HasOne("Bank", "BankId");
+            //});
+
+            //modelBuilder.Entity<Account>(entity =>
+            //{
+            //    entity.HasOne("Client","ClientId");
+            //});
+
+
             #region BankSeed
             modelBuilder.Entity<Bank>().HasData(new Bank { BankId = 1, BankName = "Banco Liliputense", CreatedOn = DateTime.UtcNow, Status = "A" });
             #endregion

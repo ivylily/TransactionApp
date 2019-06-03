@@ -4,12 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TransactionApp.DAL.Models
 {
-    public class TransactionType
-    {
-        public string TransactionTypeCode { get; set; }
-        public string TransactionDescription { get; set; }
-    }
-
     public class Transaction
     {
         [Key]

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TransactionApp.Domain.Models;
 using TransactionApp.Domain.Services;
+using TransactionApp.Domain.Services.Communication;
 
 namespace TransactionApp.API.Controllers
 {
@@ -20,14 +22,14 @@ namespace TransactionApp.API.Controllers
         [HttpGet("{id}")]
         public async Task<decimal> GetBalanceAsync(long accountId)
         {
-            var balance = await _clientService.GetBalanceAsync(accountId);
-            return balance;
+            return await _clientService.GetBalanceAsync(accountId);
         }
 
         // POST api/values
         [HttpPost]
-        public void SubmitTransaction([FromBody] string value)
+        public async Task<SubmitTransactionResponse> SubmitTransactionAsync(Transaction transaction)
         {
+            return await _transactionService.SubmitTransactionAsync(transaction);
         }
     }
 }
